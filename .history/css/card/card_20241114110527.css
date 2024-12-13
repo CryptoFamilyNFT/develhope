@@ -1,0 +1,46 @@
+.container {
+    width: '100%';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: auto;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: gray;
+    padding: 5px;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+.liLinks {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    align-items: center;
+    gap:10px;
+}
+
+h2 {
+    color: bisque;
+}
+
+body1 {
+    color: white;
+}
+
+div {
+    padding: 2px;
+}

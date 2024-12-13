@@ -1,0 +1,10 @@
+body {
+    display: grid;
+    grid-area: auto;
+    grid-column: repeat(1ft, 1fr);
+}
+
+section[id='green'] {
+    display: flex;
+    flex-direction: column;
+}

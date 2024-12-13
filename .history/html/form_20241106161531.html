@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    form {
+      max-width: 400px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-top: 10px;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+  <body>
+    <form>
+      <h1>ISCRIVITI</h1>
+      <body1>Registrati come utente</body1>
+      <hr />
+      <div class="container">
+        <div class="section">
+          <label for="Username">Username</label>
+          <input
+            name="Username"
+            id="username"
+            placeholder="Scrivi il tuo username..."
+          />
+        </div>
+        <div class="section">
+          <label for="Email">Email</label>
+          <input
+            name="Email"
+            id="Email"
+            type="email"
+            placeholder="rossi@gmail.com"
+          />
+        </div>
+        <div class="section">
+          <label for="password">Password</label>
+          <input
+            name="password"
+            id="password"
+            type="password"
+            placeholder="Pensaci bene..."
+          />
+        </div>
+        <div class="section">
+          <label for="data_nascita">Nato/a il</label>
+          <input
+            name="data_nascita"
+            id="data_nascita"
+            type="date"
+            min="1930-01-01"
+            max="2023-31-12"
+            placeholder="Pensaci bene..."
+          />
+        </div>
+        <fieldset>
+          <legend>Genere</legend>
+          <div>
+            <label for="Uomo">
+              <input name="genere" id="genere_u" type="radio" value="Uomo" />
+              Uomo
+            </label>
+            <label for="Donna">
+              <input name="genere" id="genere_d" type="radio" value="Donna" />
+              Donna
+            </label>
+            <label for="Donna">
+              <input name="genere" id="genere_d" type="radio" value="Donna" />
+              Robot
+            </label>
+            <label for="Unknow">
+              <input
+                name="genere"
+                id="genere_unknow"
+                type="radio"
+                value="Unknow"
+              />
+              Preferisco non dirlo
+            </label>
+          </div>
+        </fieldset>
+      </div>
+    </form>
+  </body>
+</html>

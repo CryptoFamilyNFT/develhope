@@ -1,0 +1,23 @@
+table {
+    border:  1px di colore #263238;
+    width: 50%;
+}
+
+table > caption {
+    font-size: 18px;
+    font-weight: bold;
+    color: #263238;
+    padding: 8px;
+}
+
+table > thead {
+    background-color: #455a64;
+    font-weight: 700;
+}
+
+tr:nth-child(even) {
+    background-color: #c8e6c9;
+}
+tr:nth-child(odd) {
+    background-color: #e8f5e9;
+}

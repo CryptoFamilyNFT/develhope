@@ -1,0 +1,27 @@
+div[id="content"] {
+    background-color: lightslategray;
+}
+
+ul > li {
+    list-style-type: none;
+}
+
+li + a {
+    color: red
+}
+
+a {
+    color: blue;
+}
+
+blockquote {
+    color: goldenrod
+}::after{
+    content: '""'
+}::before{
+    content: '""'
+}
+
+.intro > ul{
+
+}

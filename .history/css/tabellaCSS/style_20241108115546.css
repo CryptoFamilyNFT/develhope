@@ -1,0 +1,30 @@
+table {
+    border:  1px di colore #263238;
+    width: 50%;
+}
+
+table > caption {
+    font-size: 18px;
+    font-weight: bold;
+    color: #263238;
+    padding: 8px;
+}
+
+ thead, tr {
+    background-color: #455a64;
+    color: white;
+    font-weight: 700;
+}
+
+th,td {
+    padding: 10px;
+    border: 1px solid #455a64;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #c8e6c9;
+}
+tr:nth-child(odd) {
+    background-color: #e8f5e9;
+}

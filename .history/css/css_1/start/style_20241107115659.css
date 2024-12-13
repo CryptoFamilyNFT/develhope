@@ -1,0 +1,52 @@
+body {
+  color: lightslategray;
+}
+
+blockquote {
+  background-color: rgba(0, 12, 24, 0.05);
+}
+
+a {
+  border: 1px dashed red;
+}
+
+em {
+  color: darkred;
+}
+
+.variant-em {
+  background-color: greenyellow;
+  color: black;
+  font-weight: bold;
+  font-style: inherit;
+}
+
+ul {
+  background-color: unset;
+  border: 2px solid wheat;
+}
+
+ul li {
+  padding: 16px;
+}
+
+.link1 a {
+  color: inherit;
+  padding: inherit; 
+}
+
+.link2 a {
+  color: initial;
+  padding: initial; 
+}
+
+.link3 a {
+  color: unset; 
+  padding: unset; 
+}
+
+.content p {
+  padding: 10px;
+  border: 2px solid greenyellow;
+  color: aqua;
+}

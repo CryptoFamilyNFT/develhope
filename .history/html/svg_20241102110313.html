@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio SVG</title>
+</head>
+
+<style>
+    nav {
+        background-color: #222;
+        display: flex;
+        flex-direction: row;
+        height: 50px;
+        width: 100%;
+    }
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        padding-inline-start: 10px;
+        gap: 10px;
+    }
+
+    .BarSideLeft {
+        padding-left: 10px;
+    }
+
+    select {
+        background-color: transparent;
+        font-size: 18px;
+        font-size: large;
+        color: white;
+        border-color: transparent;
+    }
+
+    li {
+        height: auto;
+    }
+
+    input {
+        height: 60%;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        min-width: 50%;
+        @media (max-width: 780px) {
+            width: auto;
+        }
+    }
+
+    .buttonSearch {
+        height: 60%;
+        background-color: transparent;
+        border: 1px solid green;
+        font-size: medium;
+        border-radius: 5px;
+        color: green
+    }
+
+    .GridBar {
+        display: flex;
+        flex-direction: row;
+        grid-row: 1;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .RightSideBar {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding-right: 10px;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .LogoText {
+        display: flex;
+        flex-direction: row;
+        padding-inline-start: 10px;
+        align-items: center;
+    }
+
+    .NavButton {
+        height: auto;
+        background-color: transparent;
+        border: 1px solid transparent;
+        font-size: large;
+        color: whitesmoke;
+    }
+
+    .NavButtonDisabled {
+        height: auto;
+        background-color: transparent;
+        border: 1px solid transparent;
+        font-size: large;
+        color: gray;
+    }
+</style>
+
+<body>
+    <header>
+        <nav>
+            <div class="GridBar">
+                <div class="LogoText">
+                    <button class="NavButton">
+                        Home
+                    </button>
+                </div>
+                <div class="BarSideLeft">
+                    <ul>
+                        <li>
+                            <button class="NavButton">
+                                Home
+                            </button>
+                        </li>
+                        <li>
+                            <button class="NavButton">
+                                Navbar
+                            </button>
+                        </li>
+                        <li>
+                            <select>
+                                <option value="Dropdown">
+                                    <div class="text">Dropdown</div>
+                                </option>
+                                <hr />
+                                <option value="FAQ">FAQ</option>
+                                <option value="T&C">T&C</option>
+                            </select>
+                        </li>
+                        <li>
+                            <button disabled class="NavButton ">
+                                Disabled
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="RightSideBar">
+                    <input placeholder="Search">
+                    <button class="buttonSearch">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Contento main -->
+    </main>
+    <footer>
+        <!-- Contento footer -->
+    </footer>
+</body>
+
+</html>

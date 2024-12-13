@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Lezione HTML</title>
+    <style>
+      label {
+        display: block;
+      }
+
+      form {
+        max-width: 400px;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 10px;
+      }
+
+      .section {
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form>
+      <div class="container">
+        <h1>Sign-Up</h1>
+        <body1>Iscrizione a X</body1>
+      </div>
+      <hr />
+      <div class="section">
+        <label for="email">
+          <input id="email" name="email" type="email" placeholder="rossi@gmail.com" />
+        </label>
+      </div>
+      <div class="section">
+        <label for="password">
+          <input id="password" name="password" type="password" />
+        </label>
+      </div>
+	  <div class="section">
+        <label for="nome">
+          <input id="nome" name="nome" type="text" />
+        </label>
+      </div>
+	  <div class="section">
+        <label for="cognome">
+          <input id="cognome" name="cognome" type="text" />
+        </label>
+      </div>
+	  <div class="section">
+        <label for="date">
+          <input id="date" name="date" type="date" min="1930-01-01" max="2004-01-01"/>
+        </label>
+      </div>
+    </form>
+  </body>
+</html>

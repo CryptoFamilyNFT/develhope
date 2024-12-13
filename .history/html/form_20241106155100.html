@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 10px;
+    }
+
+    .section {
+        display: flex;
+        flex-direction: column;
+    }
+  </style>
+  <body>
+    <form>
+      <h1>ISCRIVITI</h1>
+      <body1>Registrati come utente</body1>
+      <div class="container">
+        <div>
+          <label for="Username"
+            >Username
+            <input
+              name="Username"
+              id="username"
+              placeholder="Scrivi il tuo username..."
+            />
+          </label>
+        </div>
+        <div>
+          <label for="Email"
+            >Email
+            <input
+              name="Email"
+              id="Email"
+              type="email"
+              placeholder="rossi@gmail.com"
+            />
+          </label>
+        </div>
+        <div>
+          <label for="password"
+            >Password
+            <input
+              name="password"
+              id="password"
+              type="password"
+              placeholder="Pensaci bene..."
+            />
+          </label>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

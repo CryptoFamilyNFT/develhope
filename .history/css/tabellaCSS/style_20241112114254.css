@@ -1,0 +1,63 @@
+table {
+    border: 1px di colore #263238;
+    width: 50%;
+}
+
+table>caption {
+    font-size: 18px;
+    font-weight: bold;
+    color: #263238;
+    padding: 8px;
+}
+
+table>thead>tr,
+th {
+    background-color: #1e2c32;
+    color: white;
+    font-weight: 700;
+}
+
+tr {
+    background-color: transparent;
+}
+
+tr:nth-child(even) {
+    background-color: #c8e6c9;
+}
+
+tr:nth-child(odd) {
+    background-color: #e8f5e9;
+}
+
+tbody>tr {
+    background-color: #7f0000;
+    color: white;
+}
+
+tbody>tr,
+td:nth-child(2) {
+    background-color: #003300;
+    color: white;
+
+}
+
+td:nth-child(1) {
+    color: black;
+
+}
+
+td:nth-child(3) {
+    background-color: #7f0000;
+    color: white;
+
+}
+
+td:not(:first-child) {
+    text-align: end;
+}
+
+tfoot>tr:last-child {
+    background-color: #78909c;
+    color: white;
+    font-weight: 800;
+}

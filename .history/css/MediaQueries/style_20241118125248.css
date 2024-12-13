@@ -1,0 +1,85 @@
+main {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.card-container {
+    width: 300px;
+    height: auto;
+    max-height: 500px;
+    background: linear-gradient(rgb(71, 71, 71), rgb(228, 228, 227));
+    border: 2px solid rgb(71, 71, 71);
+    border-radius: 20px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header {
+    height: 40px;
+    width: auto;
+    display: grid;
+    grid-template-areas: 
+    "user-logo name menu-b menu-b"
+    "user-logo date menu-b menu-b";
+    align-items: center;
+    padding: 10px;
+}
+
+button[id="hamburger"] {
+    background-color: transparent;
+    border: 0px solid transparent;
+}
+
+div[id="user-logo"] {
+    grid-area: user-logo;
+    justify-content: flex-start;
+}
+
+div[id="name"] {
+    grid-area: name;
+    color: white;
+    text-shadow: 0px 0px 10px #222;
+}
+
+div[id="date"] {
+    grid-area: date;
+    color: whitesmoke
+}
+
+div[id="menu-b"] {
+    grid-area: menu-b;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card-media {
+    margin: 0;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    padding: 10px;
+}
+
+.card-description {
+    width: auto;
+    height: 100%;
+    padding: 10px
+}
+
+span {
+    font-weight: bold;
+    margin-right: 2px;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+}

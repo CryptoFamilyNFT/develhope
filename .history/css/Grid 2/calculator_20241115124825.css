@@ -1,0 +1,30 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    height: auto;
+    width: 400px;
+    background-color: bisque;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto;
+}
+
+.result {
+    display: flex;
+    grid-area: 1 / 4 / span 4;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.container > .operator {
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-area: 1 / span 4
+}

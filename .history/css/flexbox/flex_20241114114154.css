@@ -1,0 +1,54 @@
+main {
+    width: '100%';
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.sidebar{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 50vw;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.logo-container > hr {
+    width: '100%';
+    display: flex;
+    justify-content: end;
+}
+
+.logo-section {
+    width: 100px;
+    position: absolute;
+    top: 2;
+    left: 2;
+}
+
+img[alt="logo"] {
+    border: '1px solid #fff';
+    border-radius: 100%;
+    width: 50px;
+    height: auto;
+    image-resolution: from-image;
+    animation: LightGame 2s linear infinite;
+}
+
+@keyframes LightGame {
+    0% {
+        box-shadow: 0 0 10px 0 #fff;
+    }
+    50% {
+        box-shadow: 0 0 10px 0 #371247;
+    }
+    100% {
+        box-shadow: 0 0 10px 0 #928c8c;
+    }
+}

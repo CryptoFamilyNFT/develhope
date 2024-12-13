@@ -1,0 +1,11 @@
+table {
+    border:  1px di colore #263238;
+    width: 50%;
+}
+
+table > caption {
+    font-size: 18px;
+    font-weight: bold;
+    color: #263238;
+    padding: 8px;
+}
