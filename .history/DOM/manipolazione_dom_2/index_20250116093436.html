@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+        <form>
+            <div>
+                <label>First Name:</label>
+                <input type="text" class="form-input" id="firstName" value="Mario" />
+            </div>
+            <div>
+                <label>Last Name:</label>
+                <input type="text" class="form-input" id="lastName" value="Rossi" />
+            </div>
+            <div>
+                <label>Age:</label>
+                <input type="number" class="form-input" id="age" value="25" />
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let objDataUser = {}
+        const $form = document.querySelector('form')
+        const mapped_input = Array.from($form.querySelectorAll('input')).map(input => {
+            return input.value
+        })
+
+        objDataUser = {
+            firstName: mapped_input[0],
+            lastName: mapped_input[1],
+            age: mapped_input[2]
+        }
+
+        const userStampData = document.createElement('p');
+        $form.append(userStampData.innerText = JSON.stringify(objDataUser))
+
+        console.log(objDataUser)
+    </script>
+</body>
+
+</html>
