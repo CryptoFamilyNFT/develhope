@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+            console.log(`BODY: \n\n${document.querySelector('ul').parentNode.innerText}`);
+            console.log(`UL SECOND CHILD: \n\n${document.querySelector('ul').children[1].innerText}`);
+            console.log(`NEXT LI: \n\n${document.querySelector('ul').children[1].nextElementSibling.innerText}`);
+            console.log(`PREV LI: \n\n${document.querySelector('ul').children[1].previousElementSibling.innerText}`);
+    </script>
+</body>
+
+</html>

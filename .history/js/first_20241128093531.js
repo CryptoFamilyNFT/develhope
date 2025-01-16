@@ -1,1 +1,0 @@
-console.log("testing" == "testing" ? typeof String("Cool Guy") === "string" : false)

@@ -1,5 +1,0 @@
-body {
-    display: grid;
-    grid-area: auto;
-    grid-column: repeat(1fr);
-}

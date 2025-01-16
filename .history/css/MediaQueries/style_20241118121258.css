@@ -1,7 +1,0 @@
-.card-container {
-    width: 300px;
-    height: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
