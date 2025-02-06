@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="card-container">
+        <div class="card">
+        </div>
+
+        <button class="-btn"> < </button>
+        <button class="+btn"> > </button>
+    </div>
+    <script>
+        const url = "https://ringsdb.com/"
+        const $card = document.querySelector('.card')
+        const $buttonBack = document.querySelector('.-btn')
+        const $buttonNext = document.querySelector('.+btn')
+
+        const dataStruct = {
+            body: '',
+            pack_code: "",
+            pack_name: "",
+            type_code: "",
+            type_name: "",
+            sphere_code: "",
+            sphere_name: "",
+            position: 0,
+            code: "",
+            name: "",
+            traits: "",
+            text: "",
+            flavor: "",
+            is_unique: false,
+            threat: 0,
+            willpower: 0,
+            attack: 0,
+            defense: 0,
+            health: 0,
+            quantity: 0,
+            deck_limit: 0,
+            illustrator: "",
+            octgnid: "",
+            has_errata: false,
+            url: "",
+            imagesrc: ""
+        }
+
+        function getLocalStorage() {
+            return localStorage.getItem('index') || 0
+        }
+
+        async function fetchData() {
+            let index = getLocalStorage()
+            try {
+            const response = await fetch('https://ringsdb.com/api/public/cards/')
+            const data = await response.json()
+            fillData(data, index)
+            } catch (e) {
+                console.log(e.message)
+            } finally {
+              console.log('Data fetched correctly')
+            }
+        }
+
+        function fillData(data, index) {
+            dataStruct.name = data[index].name
+            dataStruct.body = data[index].body
+            dataStruct.imagesrc = data[index].imagesrc
+        }
+
+        function setCardData(data) {
+            $card.innerHTML = `
+            <h1>${data.name}</h1>
+            <img src="${url + data.imagesrc}" />
+            `
+            $card.style.border = "1px solid #ccc";
+            $card.style.padding = "16px";
+            $card.style.borderRadius = "8px";
+            $card.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
+            $card.style.textAlign = "center";
+        }
+
+        let currentIndex = localStorage.getItem('index') || 0 
+
+        fetchData().then(() => {
+            setCardData(dataStruct)
+        })
+
+        $buttonBack.addEventListener('click', () => {
+            if (currentIndex > 0) {
+            localStorage.setItem('index', currentIndex - 1)
+            } else {
+            localStorage.setItem('index', 0)
+            console.log("Sei già all'inizio")
+            }
+        })
+
+        $buttonNext.addEventListener('click', () => {
+            localStorage.setItem('index', currentIndex + 1)
+        })
+
+    </script>
+</body>
+
+</html>

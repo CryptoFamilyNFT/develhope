@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .form {
+                display: flex;
+                flex-direction: column;
+                max-width: 300px;
+                gap: 16px;
+                margin-bottom: 16px
+            }
+
+            ;
+        </style>
+    </head>
+
+    <body>
+        <h1>Il form di <span class="title-name"></span></h1>
+        <div class="form">
+            <label for="email">Email</label>
+            <input type="email" name="email" class="email" placeholder="email">
+            <label for="firstname">Name</label>
+            <input type="text" name="firstname" class="firstname" placeholder="firstname">
+            <label for="lastname">Surname</label>
+            <input type="text" name="lastname" class="lastname" placeholder="lastname">
+        </div>
+        <button class="btn">Salva</button>
+        <p class="printedform"></p>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const btn = document.querySelector('.btn');
+                const titleName = document.querySelector('.title-name');
+                const emailInput = document.querySelector('.email');
+                const firstnameInput = document.querySelector('.firstname');
+                const lastnameInput = document.querySelector('.lastname');
+                const printedForm = document.querySelector('.printedform');
+
+                // se data ci sono già nel session storage imposto i val
+                if (sessionStorage.getItem('email')) {
+                    emailInput.value = sessionStorage.getItem('email');
+                }
+                if (sessionStorage.getItem('firstname')) {
+                    firstnameInput.value = sessionStorage.getItem('firstname');
+                    titleName.textContent = sessionStorage.getItem('firstname');
+                }
+                if (sessionStorage.getItem('lastname')) {
+                    lastnameInput.value = sessionStorage.getItem('lastname');
+                }
+
+                btn.addEventListener('click', () => {
+                    const email = emailInput.value;
+                    const firstname = firstnameInput.value;
+                    const lastname = lastnameInput.value;
+
+                    // Save data to session storage
+                    sessionStorage.setItem('email', email);
+                    sessionStorage.setItem('firstname', firstname);
+                    sessionStorage.setItem('lastname', lastname);
+
+                    titleName.textContent = firstname; //span aggiornato
+
+                    printedForm.textContent = `Email: ${email}, Name: ${firstname}, Surname: ${lastname}`; //dati salvati
+                });
+            });
+        </script>
+    </body>
+
+    </html>

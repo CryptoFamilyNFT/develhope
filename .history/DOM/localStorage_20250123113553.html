@@ -1,0 +1,90 @@
+<!-- Lo scope di questo task è di salvare tutti i dati di un form nel local storage.
+-Fai in modo che nello span venga inserito il testo che si è inserito nell'input nome
+-Fai in modo che questi dati si salvino nel local storage
+-Controlla che al reload il nome nel titolo non scompaia -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+            gap: 16px;
+            margin-bottom: 16px
+        }
+
+        ;
+    </style>
+</head>
+
+<body>
+    <h1>Il form di <span class="title-name"></span></h1>
+    <div class="form">
+        <label for="email">Email</label>
+        <input type="email" name="email" class="email" placeholder="email">
+        <label for="firstname">Name</label>
+        <input type="text" name="firstname" class="firstname" placeholder="firstname">
+        <label for="lastname">Surname</label>
+        <input type="text" name="lastname" class="lastname" placeholder="lastname">
+    </div>
+    <button class="btn">Salva</button>
+    <p class="printedform"></p>
+    <script>
+        const formData = {
+            email: '',
+            firstname: '',
+            lastname: ''
+        }
+
+        const $span = document.querySelector('.title-name');
+        const $form = document.querySelector('.form');
+        const $form_inputs = Array.from($form.querySelectorAll('input'));
+        const $btn = document.querySelector('.btn');
+        const $printedform = document.querySelector('.printedform');
+
+
+        if (localStorage.getItem('formData')) {
+            loadFromLocalStorage();
+        }
+
+        function setUsername() {
+            $span.innerText = $form_inputs[1].value;
+        }
+
+        function saveToLocalStorage() {
+            formData.email = $form_inputs[0].value;
+            formData.firstname = $form_inputs[1].value;
+            formData.lastname = $form_inputs[2].value;
+            localStorage.setItem('formData', JSON.stringify(formData));
+            setUsername();
+        }
+
+        function loadFromLocalStorage() {
+            const savedData = localStorage.getItem('formData');
+            if (savedData) {
+                const parsedData = JSON.parse(savedData);
+                $form_inputs[0].value = parsedData.email;
+                $form_inputs[1].value = parsedData.firstname;
+                $form_inputs[2].value = parsedData.lastname;
+                $span.innerText = parsedData.firstname;
+            }
+        }
+
+        $btn.addEventListener('click', saveToLocalStorage);
+    </script>
+</body>
+
+</html>
