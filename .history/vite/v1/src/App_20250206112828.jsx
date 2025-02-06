@@ -1,4 +1,4 @@
-import { Hello } from "./components";
+import { Hello, Message } from "./components";
 
 function App() {
   return (
