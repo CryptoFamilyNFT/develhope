@@ -7,6 +7,7 @@ import Chat from "./components/Chat";
 //import MouseClicker from "./components/MouseClicker";
 import { InteractiveWelcome } from "./components";
 import { Login } from "./components";
+import UncontrolledLogin from "./components/UncontrolledLogin";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
       */}
       <InteractiveWelcome/>
       <Login/>
+      <UncontrolledLogin/>
     </div>
   );
 }
