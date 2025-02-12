@@ -1,8 +1,7 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[1]Ora Hello visualizza sia l'h2 che l'elemento message".
+[2]Can you use the Hello component more than once in the App component? • Si posso usarlo 
+[3] What happens if you do? Viene ripetuto l'elemnto 
+[4] can you render the Message component directly within the App component? si
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

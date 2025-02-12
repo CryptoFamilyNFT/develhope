@@ -1,13 +1,11 @@
-import { Hello } from "./components";
-import { Welcome } from "./components/Welcome";
+import { Button } from "./components/Button";
+
 
 function App() {
+
   return (
     <div>
-      <Hello />
-      <div>
-      <Welcome name="Mario" age={30} />
-      </div>
+      <Button onClick={() => alert(new Date().toLocaleString())}>Click me!</Button>
     </div>
   );
 }
