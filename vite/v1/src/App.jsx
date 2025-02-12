@@ -1,7 +1,8 @@
 //import { Button } from "./components/Button";
 //import { Counter } from "./components/Counter";
 //import { Clock, Counter2 } from "./components/Counter2";
-import MouseClicker from "./components/MouseClicker";
+import Chat from "./components/Chat";
+//import MouseClicker from "./components/MouseClicker";
 
 
 function App() {
@@ -22,8 +23,9 @@ function App() {
       <Counter />
       <Counter2 />
       <Clock />
-      */}
       <MouseClicker />
+      */}
+      <Chat />
     </div>
   );
 }
