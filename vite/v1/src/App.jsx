@@ -1,6 +1,7 @@
 //import { Button } from "./components/Button";
 //import { Counter } from "./components/Counter";
 //import { Clock, Counter2 } from "./components/Counter2";
+import { AlertClock } from "./components/AlertClock";
 import Chat from "./components/Chat";
 //import MouseClicker from "./components/MouseClicker";
 
@@ -25,6 +26,7 @@ function App() {
       <Clock />
       <MouseClicker />
       */}
+      <AlertClock onShowTime={() => alert(new Date().toLocaleString())} />
       <Chat />
     </div>
   );

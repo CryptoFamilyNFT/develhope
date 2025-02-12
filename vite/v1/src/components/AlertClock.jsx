@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-export const AlertClock = ({ onClick }) => {
+export const AlertClock = ({ onShowTime }) => {
     return (
         <div>
-            <button onClick={onClick}>Click me!</button>
+            <button onClick={onShowTime}>Click me!</button>
         </div>
     );
 }
