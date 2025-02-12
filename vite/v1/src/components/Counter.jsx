@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
 
@@ -6,8 +7,24 @@ export const Counter = () => {
 
 
     return (
-        <div>
-            <button onClick={() => setCounter(counter + 1)}>{counter}</button>
+        <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 20,
+        }}>
+            <button onClick={() => setCounter(prevCount => prevCount + 1)}>Click Me</button>
+            <CounterDisplay>
+                {counter}
+            </CounterDisplay>
         </div>
     );
+}
+
+const CounterDisplay = ({ children }) => {
+    return (
+        <>
+            {children}
+        </>
+    )
 }
