@@ -1,10 +1,12 @@
+/* eslint-disable no-unused-vars */
 //import { Button } from "./components/Button";
 //import { Counter } from "./components/Counter";
 //import { Clock, Counter2 } from "./components/Counter2";
 import { AlertClock } from "./components/AlertClock";
 import Chat from "./components/Chat";
 //import MouseClicker from "./components/MouseClicker";
-
+import { InteractiveWelcome } from "./components";
+import { Login } from "./components";
 
 function App() {
 
@@ -25,9 +27,12 @@ function App() {
       <Counter2 />
       <Clock />
       <MouseClicker />
-      */}
+
       <AlertClock onShowTime={() => alert(new Date().toLocaleString())} />
       <Chat />
+      */}
+      <InteractiveWelcome/>
+      <Login/>
     </div>
   );
 }
