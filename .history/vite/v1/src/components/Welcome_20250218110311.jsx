@@ -76,7 +76,7 @@ function Login({ onLogin }) {
         </div>
         <div>
           {alert.message && (
-            <div style={{ color: alert.type === 'success' ? 'lime' : 'red' }} className={`alert ${alert.type}`}>
+            <div style={{color: alert.type === 'success' ? 'lime' : 'red' }} className={`alert ${alert.type}`}>
               {alert.message}
             </div>
           )}
@@ -85,9 +85,6 @@ function Login({ onLogin }) {
             <input
               type="password"
               value={password}
-              style={{
-                backgroundColor: password.length < 8 ? 'red' : 'green',
-              }}
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>

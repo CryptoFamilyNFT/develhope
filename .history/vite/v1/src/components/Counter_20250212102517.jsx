@@ -23,8 +23,8 @@ export const Counter = () => {
 
 const CounterDisplay = ({ children }) => {
     return (
-        <div style={{ fontSize: '24px', color: children % 2 === 0 ? 'blue' : 'red' }}>
+        <>
             {children}
-        </div>
+        </>
     )
 }
