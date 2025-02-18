@@ -3,11 +3,13 @@
 //import { Counter } from "./components/Counter";
 //import { Clock, Counter2 } from "./components/Counter2";
 import { AlertClock } from "./components/AlertClock";
-import Chat from "./components/Chat";
+import Chat from "./components/Chat/Chat";
 //import MouseClicker from "./components/MouseClicker";
 import { InteractiveWelcome } from "./components";
 import { Login } from "./components";
 import UncontrolledLogin from "./components/UncontrolledLogin";
+import NotificationApp from "./NotificationApp";
+import FocusableInput from "./components/FocusableInput/FocusableInput";
 
 function App() {
 
@@ -30,11 +32,12 @@ function App() {
       <MouseClicker />
 
       <AlertClock onShowTime={() => alert(new Date().toLocaleString())} />
-      <Chat />
-      */}
-      <InteractiveWelcome/>
+            <InteractiveWelcome/>
       <Login/>
       <UncontrolledLogin/>
+            <Chat />
+      */}
+      <FocusableInput/>
     </div>
   );
 }

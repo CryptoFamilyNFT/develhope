@@ -17,7 +17,7 @@ const UncontrolledLogin = () => {
         const formData = new FormData(form);
         const username = formData.get('username');
         const password = formData.get('password');
-        const remember = formData.get('remember'); // torna on or null
+        const remember = formData.get('remember') === 'on' ? true : false; // torna on or null
         console.log('Data:', {username, password, remember});
     };
 
