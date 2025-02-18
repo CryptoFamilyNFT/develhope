@@ -4,6 +4,8 @@ export const styles = {
         padding: '10px',
         borderRadius: '5px',
         marginBottom: '10px',
+        width: 100,
+        height: 100
     },
     containerTitle: {
         cursor: 'pointer',

@@ -48,7 +48,7 @@ function App() {
       */}
     <Container>
       <p>
-        Questo è un container con children che collapsa al click del titolo
+        Questo è un container con children
       </p>
     </Container>
     </div>

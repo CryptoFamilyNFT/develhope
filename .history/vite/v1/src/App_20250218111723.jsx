@@ -46,11 +46,7 @@ function App() {
                       <Welcome/>
 
       */}
-    <Container>
-      <p>
-        Questo è un container con children che collapsa al click del titolo
-      </p>
-    </Container>
+    <Container/>
     </div>
   );
 }

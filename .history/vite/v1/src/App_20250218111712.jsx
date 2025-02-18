@@ -12,7 +12,7 @@ import NotificationApp from "./NotificationApp";
 import FocusableInput from "./components/FocusableInput/FocusableInput";
 import { Color, Colors } from "./components/Color/Color";
 import TodoList from "./components/TodoList/TodoList";
-//import Welcome from "./components/Welcome";
+import {Welcome} from "./components/Welcome";
 import Container from "./components/Container/Container";
 
 function App() {
@@ -46,11 +46,7 @@ function App() {
                       <Welcome/>
 
       */}
-    <Container>
-      <p>
-        Questo è un container con children che collapsa al click del titolo
-      </p>
-    </Container>
+    <Container/>
     </div>
   );
 }
