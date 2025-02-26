@@ -77,7 +77,7 @@ function App() {
       <input type="checkbox" checked={langSelected === 'es'} value={'es'} onChange={(e) => switchText(e.target.value)} title="es" />
     </div>
 
-      {/* GITHUB USERS */}
+      {/* GITHUB */}
      <GitHubUsers />
 
     </div>
