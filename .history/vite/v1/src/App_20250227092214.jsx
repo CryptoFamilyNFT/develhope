@@ -54,7 +54,6 @@ function App() {
       alignItems: "center",
       display: "flex",
       justifyContent: "center",
-      flexDirection: "column",
       gap: 100
     }}>
       {/* 

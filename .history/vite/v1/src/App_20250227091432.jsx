@@ -15,7 +15,6 @@ import useCounter from "./components/hooks/useCounter";
 import useGithubUser from "./components/hooks/useGithubUser";
 import useCurrentLocation from "./components/hooks/useCurrentLocation";
 import useCustomCounter from "./components/hooks/useCustomCounter";
-import { FilterList, objList } from "./components/FilteredList/FilteredList";
 
 function App() {
   const { context, saveContext } = React.useContext(LanguageContext);
@@ -54,7 +53,6 @@ function App() {
       alignItems: "center",
       display: "flex",
       justifyContent: "center",
-      flexDirection: "column",
       gap: 100
     }}>
       {/* 
@@ -130,9 +128,6 @@ function App() {
         <button onClick={decrement}>Decrement</button>
         <button onClick={reset}>Reset</button>
       </div>
-
-      {/* FilteredList */}
-      <FilterList list={objList} />
     </div>
   );
 }

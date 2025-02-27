@@ -15,24 +15,23 @@ import useCounter from "./components/hooks/useCounter";
 import useGithubUser from "./components/hooks/useGithubUser";
 import useCurrentLocation from "./components/hooks/useCurrentLocation";
 import useCustomCounter from "./components/hooks/useCustomCounter";
-import { FilterList, objList } from "./components/FilteredList/FilteredList";
 
 function App() {
-  const { context, saveContext } = React.useContext(LanguageContext);
+  const {context, saveContext} = React.useContext(LanguageContext);
   const [langSelected, selectLang] = React.useState(null)
-  const { count, increment } = useCounter(0);
+  const {count, increment } = useCounter(0);
   const [username, setUsername] = useState('');
   // const [_user, _setUser] = useState({
   //   user: null,
   //   loading: false,
   //   error: null
   // });
-  const { location, getCurrentLocation, _error, _loading } = useCurrentLocation();
+  const {location, getCurrentLocation, _error, _loading} = useCurrentLocation();
 
   function switchText(lang) {
     selectLang(lang);
     const switchedText = LanguageHelper.switchText(lang);
-    saveContext({ ...context, lang, textTranslated: switchedText });
+    saveContext({...context, lang, textTranslated: switchedText});
     console.log(switchedText)
     return switchedText
   }
@@ -44,8 +43,7 @@ function App() {
     fetchUser(username);
   }
 
-  const { _count, _increment, decrement, reset } = useCustomCounter();
-
+  const {counter, _increment, decrement, reset} = useCustomCounter();
 
   return (
     <div style={{
@@ -54,7 +52,6 @@ function App() {
       alignItems: "center",
       display: "flex",
       justifyContent: "center",
-      flexDirection: "column",
       gap: 100
     }}>
       {/* 
@@ -84,55 +81,44 @@ function App() {
       3
     </CounterDisplay>
     <Users/>*/}
-      <div id="context-lang">
-        <h2>{context.textTranslated}</h2>
-        <input type="text" value={context?.lang || ''} onChange={(e) => saveContext({ ...context, lang: e.target.value })} />
-        <input type="checkbox" checked={langSelected === 'en'} value={'en'} onChange={(e) => switchText(e.target.value)} title="en" />
-        <input type="checkbox" checked={langSelected === 'fr'} value={'fr'} onChange={(e) => switchText(e.target.value)} title="fr" />
-        <input type="checkbox" checked={langSelected === 'es'} value={'es'} onChange={(e) => switchText(e.target.value)} title="es" />
-      </div>
+    <div id="context-lang">
+      <h2>{context.textTranslated}</h2>
+      <input type="text" value={context?.lang || ''} onChange={(e) => saveContext({...context, lang: e.target.value})} />
+      <input type="checkbox" checked={langSelected === 'en'} value={'en'} onChange={(e) => switchText(e.target.value)} title="en" />
+      <input type="checkbox" checked={langSelected === 'fr'} value={'fr'} onChange={(e) => switchText(e.target.value)} title="fr" />
+      <input type="checkbox" checked={langSelected === 'es'} value={'es'} onChange={(e) => switchText(e.target.value)} title="es" />
+    </div>
 
       {/* GITHUB USERS */}
-      <GitHubUsers />
+     <GitHubUsers />
 
-      {/* useCounter */}
-      <div>
-        {count}
-        <button onClick={() => increment()}>Increment</button>
-      </div>
+     {/* useCounter */}
+     <div>
+      {count}
+      <button onClick={() => increment()}>Increment</button>
+     </div>
 
-      {/* useGitHubUser */}
-      <div>
-        <form>
-          <input type="text" value={username || ''} onChange={(e) => UpdateUserGithub(e.target.value)} />
-        </form>
-        {loading && <p>Loading...</p>}
-        {error !== null && <p>Error: {user.error}</p>}
-        {user && (
-          <div>
-            <h1>{user.name}</h1>
-            <p>{user.login}</p>
-            {user.avatar_url && <img src={user.avatar_url} width={'100px'} height={'auto'} />}
-          </div>
-        )}
+     {/* useGitHubUser */}
+     <div>
+      <form>
+        <input type="text" value={username || ''} onChange={(e) => UpdateUserGithub(e.target.value)} />
+      </form>
+      {loading && <p>Loading...</p>}
+      {error !== null && <p>Error: {user.error}</p>}
+      {user && (
         <div>
-          <h1>Location</h1>
-          {location ? <div>{location.longitude} <span><button onClick={getCurrentLocation}>New</button></span></div> : <button onClick={getCurrentLocation}>Get location</button>}
-          {_loading && <p>Loading...</p>}
-          {_error !== null && <p>Error: {_error}</p>}
+          <h1>{user.name}</h1>
+          <p>{user.login}</p>
+          {user.avatar_url && <img src={user.avatar_url} width={'100px'} height={'auto'}/>}
         </div>
-      </div>
-
-      {/* usecustomCounter */}
+      )}
       <div>
-        {_count}
-        <button onClick={_increment}>Increment</button>
-        <button onClick={decrement}>Decrement</button>
-        <button onClick={reset}>Reset</button>
+        <h1>Location</h1>
+        {location ? <div>{location.longitude} <span><button onClick={getCurrentLocation}>New</button></span></div> : <button onClick={getCurrentLocation}>Get location</button>}
+        {_loading && <p>Loading...</p>}
+        {_error !== null && <p>Error: {_error}</p>}
       </div>
-
-      {/* FilteredList */}
-      <FilterList list={objList} />
+     </div>
     </div>
   );
 }
