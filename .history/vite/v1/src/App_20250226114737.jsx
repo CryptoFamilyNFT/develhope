@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 //import { Button } from "./components/Button";
 //import { Counter } from "./components/Counter";
 //import { Clock, Counter2 } from "./components/Counter2";
@@ -7,25 +8,24 @@
 //import Welcome from "./components/Welcome";
 //import CounterDisplay from "./components/CounterDisplay";
 //import TodoList from "./components/TodoList/TodoList";
-import React, { useState } from "react";
+import React, { use, useEffect } from "react";
+import FocusableInput from "./components/FocusableInput/FocusableInput";
+import MemoUseCase from "./components/MemoUseCase";
+import { Users } from "./components/Users";
+import UserWithoutCallback from "./components/UsersWithoutCallback";
 import { LanguageContext } from "./helper/LanguageContext";
+import NotificationApp from "./NotificationApp";
+import { NotificationProvider } from "./NotificationContext";
 import LanguageHelper from "./helper/LanguageHelper";
 import GitHubUsers from "./components/GitHubUser/GitHubUsers";
 import useCounter from "./components/hooks/useCounter";
 import useGithubUser from "./components/hooks/useGithubUser";
-import useCurrentLocation from "./components/hooks/useCurrentLocation";
 
 function App() {
   const {context, saveContext} = React.useContext(LanguageContext);
   const [langSelected, selectLang] = React.useState(null)
   const {count, increment } = useCounter(0);
-  const [username, setUsername] = useState('');
-  // const [_user, _setUser] = useState({
-  //   user: null,
-  //   loading: false,
-  //   error: null
-  // });
-  const {location, getCurrentLocation, _error, _loading} = useCurrentLocation();
+  const {user, loading, error} = useGithubUser('mario');
 
   function switchText(lang) {
     selectLang(lang);
@@ -35,13 +35,7 @@ function App() {
     return switchedText
   }
 
-  const { user, loading, error, fetchUser } = useGithubUser();
-
-  function UpdateUserGithub(username) {
-    setUsername(username);
-    fetchUser(username);
-  }
-
+  console.log(context)
 
   return (
     <div style={{
@@ -81,7 +75,7 @@ function App() {
     <Users/>*/}
     <div id="context-lang">
       <h2>{context.textTranslated}</h2>
-      <input type="text" value={context?.lang || ''} onChange={(e) => saveContext({...context, lang: e.target.value})} />
+      <input type="text" value={context?.lang} onChange={(e) => saveContext({...context, lang: e.target.value})} />
       <input type="checkbox" checked={langSelected === 'en'} value={'en'} onChange={(e) => switchText(e.target.value)} title="en" />
       <input type="checkbox" checked={langSelected === 'fr'} value={'fr'} onChange={(e) => switchText(e.target.value)} title="fr" />
       <input type="checkbox" checked={langSelected === 'es'} value={'es'} onChange={(e) => switchText(e.target.value)} title="es" />
@@ -98,24 +92,15 @@ function App() {
 
      {/* useGitHubUser */}
      <div>
-      <form>
-        <input type="text" value={username || ''} onChange={(e) => UpdateUserGithub(e.target.value)} />
-      </form>
       {loading && <p>Loading...</p>}
-      {error !== null && <p>Error: {user.error}</p>}
+      {error && <p>Error: {error}</p>}
       {user && (
         <div>
           <h1>{user.name}</h1>
           <p>{user.login}</p>
-          {user.avatar_url && <img src={user.avatar_url} width={'100px'} height={'auto'}/>}
+          <img src={user.avatar} width={'100px'} height={'auto'}/>
         </div>
       )}
-      <div>
-        <h1>Location</h1>
-        {location ? <div>{location.longitude} <span><button onClick={getCurrentLocation}>New</button></span></div> : <button onClick={getCurrentLocation}>Get location</button>}
-        {_loading && <p>Loading...</p>}
-        {_error !== null && <p>Error: {_error}</p>}
-      </div>
      </div>
     </div>
   );

@@ -112,7 +112,7 @@ function App() {
       )}
       <div>
         <h1>Location</h1>
-        {location ? <div>{location.longitude} <span><button onClick={getCurrentLocation}>New</button></span></div> : <button onClick={getCurrentLocation}>Get location</button>}
+        {location ? location.longitude : <button onClick={getCurrentLocation}>Get location</button>}
         {_loading && <p>Loading...</p>}
         {_error !== null && <p>Error: {_error}</p>}
       </div>

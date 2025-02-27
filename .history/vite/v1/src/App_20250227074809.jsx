@@ -110,12 +110,13 @@ function App() {
           {user.avatar_url && <img src={user.avatar_url} width={'100px'} height={'auto'}/>}
         </div>
       )}
-      <div>
-        <h1>Location</h1>
-        {location ? <div>{location.longitude} <span><button onClick={getCurrentLocation}>New</button></span></div> : <button onClick={getCurrentLocation}>Get location</button>}
-        {_loading && <p>Loading...</p>}
-        {_error !== null && <p>Error: {_error}</p>}
-      </div>
+      {location && (
+        <div>
+          <h1>Location</h1>
+          <p>Latitude: {location.latitude}</p>
+          <p>Longitude: {location.longitude}</p>
+        </div>
+      )}
      </div>
     </div>
   );

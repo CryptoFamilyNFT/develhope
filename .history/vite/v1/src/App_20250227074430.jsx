@@ -13,7 +13,6 @@ import LanguageHelper from "./helper/LanguageHelper";
 import GitHubUsers from "./components/GitHubUser/GitHubUsers";
 import useCounter from "./components/hooks/useCounter";
 import useGithubUser from "./components/hooks/useGithubUser";
-import useCurrentLocation from "./components/hooks/useCurrentLocation";
 
 function App() {
   const {context, saveContext} = React.useContext(LanguageContext);
@@ -25,7 +24,6 @@ function App() {
   //   loading: false,
   //   error: null
   // });
-  const {location, getCurrentLocation, _error, _loading} = useCurrentLocation();
 
   function switchText(lang) {
     selectLang(lang);
@@ -110,12 +108,6 @@ function App() {
           {user.avatar_url && <img src={user.avatar_url} width={'100px'} height={'auto'}/>}
         </div>
       )}
-      <div>
-        <h1>Location</h1>
-        {location ? <div>{location.longitude} <span><button onClick={getCurrentLocation}>New</button></span></div> : <button onClick={getCurrentLocation}>Get location</button>}
-        {_loading && <p>Loading...</p>}
-        {_error !== null && <p>Error: {_error}</p>}
-      </div>
      </div>
     </div>
   );

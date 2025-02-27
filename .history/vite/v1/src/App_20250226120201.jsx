@@ -13,19 +13,17 @@ import LanguageHelper from "./helper/LanguageHelper";
 import GitHubUsers from "./components/GitHubUser/GitHubUsers";
 import useCounter from "./components/hooks/useCounter";
 import useGithubUser from "./components/hooks/useGithubUser";
-import useCurrentLocation from "./components/hooks/useCurrentLocation";
 
 function App() {
   const {context, saveContext} = React.useContext(LanguageContext);
   const [langSelected, selectLang] = React.useState(null)
   const {count, increment } = useCounter(0);
   const [username, setUsername] = useState('');
-  // const [_user, _setUser] = useState({
-  //   user: null,
-  //   loading: false,
-  //   error: null
-  // });
-  const {location, getCurrentLocation, _error, _loading} = useCurrentLocation();
+  const [user, setUser] = useState({
+    user: null,
+    loading: false,
+    error: null
+  });
 
   function switchText(lang) {
     selectLang(lang);
@@ -35,11 +33,11 @@ function App() {
     return switchedText
   }
 
-  const { user, loading, error, fetchUser } = useGithubUser();
-
   function UpdateUserGithub(username) {
-    setUsername(username);
-    fetchUser(username);
+    const {user, loading, error} = useGithubUser(username);
+    setUsername(user.username);
+    setUser({user, loading, error});
+    console.log(user)
   }
 
 
@@ -99,23 +97,18 @@ function App() {
      {/* useGitHubUser */}
      <div>
       <form>
-        <input type="text" value={username || ''} onChange={(e) => UpdateUserGithub(e.target.value)} />
+        <input type="text" value={username || ''} onChange={(e) => setUsername(e.target.value)} />
+        <button>Search</button>
       </form>
-      {loading && <p>Loading...</p>}
-      {error !== null && <p>Error: {user.error}</p>}
-      {user && (
+      {user.loading && <p>Loading...</p>}
+      {user.error && <p>Error: {user.error}</p>}
+      {user.user && (
         <div>
-          <h1>{user.name}</h1>
-          <p>{user.login}</p>
-          {user.avatar_url && <img src={user.avatar_url} width={'100px'} height={'auto'}/>}
+          <h1>{user.user.name}</h1>
+          <p>{user.user.login}</p>
+          {user.user.avatar && <img src={user.user.avatar} width={'100px'} height={'auto'}/>}
         </div>
       )}
-      <div>
-        <h1>Location</h1>
-        {location ? <div>{location.longitude} <span><button onClick={getCurrentLocation}>New</button></span></div> : <button onClick={getCurrentLocation}>Get location</button>}
-        {_loading && <p>Loading...</p>}
-        {_error !== null && <p>Error: {_error}</p>}
-      </div>
      </div>
     </div>
   );
