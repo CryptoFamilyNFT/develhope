@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { ChatStyles as styles } from './chatStyle';
 import { useEffect } from 'react';
-import { useMemo } from 'react';
 
 const Chat = () => {
     const [messages, setMessages] = useState([
@@ -17,6 +16,14 @@ const Chat = () => {
             setInput('');
         }
     };
+
+    useEffect(() => {
+        function receiverResponse() {
+            setMessages([...messages, { text: 'response', sender: 'received' }]);
+        }
+
+        receiverResponse()
+    }, [])
 
     return (
         <div style={styles.chatContainer}>

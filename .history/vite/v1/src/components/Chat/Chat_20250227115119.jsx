@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { ChatStyles as styles } from './chatStyle';
-import { useEffect } from 'react';
-import { useMemo } from 'react';
 
 const Chat = () => {
     const [messages, setMessages] = useState([
@@ -17,6 +15,17 @@ const Chat = () => {
             setInput('');
         }
     };
+
+    const handleResponse = () => {
+        const randomPhrase = [
+            'Ciao',
+            'Come stai??',
+            'Che mi dici?',
+            'Tutto bene'
+        ]
+
+        setMessages([...messages, { text: randomPhrase[Math.random(1 * randomPhrase.length)], sender: 'sent' }]);
+    }
 
     return (
         <div style={styles.chatContainer}>

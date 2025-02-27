@@ -3,6 +3,7 @@ import Chat from './components/Chat/Chat';
 import { Counter } from './components/Counter';
 import GitHubUser from './components/GitHubUser/GitHubUser';
 import GithubUserList from './components/GitHubUser/GithubUsersList';
+import { useState } from 'react';
 import useGithubUser from './components/hooks/useGithubUser';
 
 function WrappedExample() {
@@ -27,6 +28,7 @@ function ShowGithubUser() {
 }
 
 export default function AppRouter() {
+    const [searchedUser, setSearchedUser] = useState('');
     return (
         <div style={{
             width: '100%',

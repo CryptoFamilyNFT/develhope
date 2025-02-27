@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import useSWR from "swr";
 
 // export default function useGithubUser() {
@@ -34,5 +35,5 @@ const fecther = (url) => fetch(url).then((res) => res.json());
 export default function useGithubUser() {
     const {data, error, isLoading} = useSWR('https://api.github.com/users', fecther);
 
-    return {data, error, isLoading};
+    return {data, error, isLoading, fecther};
 };

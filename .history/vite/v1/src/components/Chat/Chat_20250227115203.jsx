@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { ChatStyles as styles } from './chatStyle';
-import { useEffect } from 'react';
-import { useMemo } from 'react';
 
 const Chat = () => {
     const [messages, setMessages] = useState([
@@ -17,6 +15,7 @@ const Chat = () => {
             setInput('');
         }
     };
+
 
     return (
         <div style={styles.chatContainer}>

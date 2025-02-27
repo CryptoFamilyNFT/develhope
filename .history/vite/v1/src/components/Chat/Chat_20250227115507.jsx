@@ -18,6 +18,14 @@ const Chat = () => {
         }
     };
 
+    useMemo(() => {
+        function receiverResponse() {
+            setMessages((prevMessages) => [...prevMessages, { text: 'response', sender: 'received' }]);
+        }
+
+        receiverResponse();
+    }, [messages])
+
     return (
         <div style={styles.chatContainer}>
             <div style={styles.messages}>

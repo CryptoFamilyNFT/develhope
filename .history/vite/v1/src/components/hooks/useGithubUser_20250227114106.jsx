@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import useSWR from "swr";
 
 // export default function useGithubUser() {
