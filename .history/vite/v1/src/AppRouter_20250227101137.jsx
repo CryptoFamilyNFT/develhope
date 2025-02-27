@@ -33,15 +33,15 @@ export default function AppRouter() {
                         <Link to="/chat">Chat</Link>
                         <Link to="/count">Counter</Link>
                         <Link to="/users">GitHub Users</Link>
-                        <Link to={`/users/:${searchedUser}`}>GitHub User</Link>
-                        <form onSubmit={(e) => {
-                            e.preventDefault();
-                            setSearchedUser(e.target.value
-                            );
-                        }} style={{ display: 'flex', alignItems: 'center' }}>
-                            <input type="text" placeholder="Search user" />
-                            <button type="submit">Search User</button>
-                        </form>
+                        <Link to={`/users/${searchedUser}`}>
+                            <form onSubmit={(e) => {
+                                e.preventDefault();
+                                setSearchedUser(e.target.elements[0].value);
+                            }}>
+                                <input type="text" placeholder="Search user" />
+                            </form>
+                            GitHub User
+                        </Link>
                     </div>
                 </nav>
                 <Routes>

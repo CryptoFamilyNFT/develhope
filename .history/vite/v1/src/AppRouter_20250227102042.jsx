@@ -36,8 +36,7 @@ export default function AppRouter() {
                         <Link to={`/users/:${searchedUser}`}>GitHub User</Link>
                         <form onSubmit={(e) => {
                             e.preventDefault();
-                            setSearchedUser(e.target.value
-                            );
+                            setSearchedUser(e.target.[0].value);
                         }} style={{ display: 'flex', alignItems: 'center' }}>
                             <input type="text" placeholder="Search user" />
                             <button type="submit">Search User</button>

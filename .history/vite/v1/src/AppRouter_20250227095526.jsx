@@ -2,10 +2,8 @@ import { BrowserRouter, Link, Route, Routes, useParams } from 'react-router-dom'
 import Chat from './components/Chat/Chat';
 import { Counter } from './components/Counter';
 import GitHubUser from './components/GitHubUser/GitHubUser';
-import GithubUserList from './components/GitHubUser/GithubUsersList';
-import { useState } from 'react';
 
-function Home() {
+function Home () {
     return <h1>Home</h1>
 }
 
@@ -15,7 +13,6 @@ function ShowGithubUser() {
 }
 
 export default function AppRouter() {
-    const [searchedUser, setSearchedUser] = useState('');
     return (
         <div style={{
             width: '100%',
@@ -32,24 +29,14 @@ export default function AppRouter() {
                         <Link to="/">Home</Link>
                         <Link to="/chat">Chat</Link>
                         <Link to="/count">Counter</Link>
-                        <Link to="/users">GitHub Users</Link>
-                        <Link to={`/users/:${searchedUser}`}>GitHub User</Link>
-                        <form onSubmit={(e) => {
-                            e.preventDefault();
-                            setSearchedUser(e.target.value
-                            );
-                        }} style={{ display: 'flex', alignItems: 'center' }}>
-                            <input type="text" placeholder="Search user" />
-                            <button type="submit">Search User</button>
-                        </form>
+                        <Link to="/users/mario">GitHub User</Link>
                     </div>
                 </nav>
                 <Routes>
                     <Route path="/chat" element={<Chat />} />
                     <Route path="/" element={<Home />} />
-                    <Route path="/count" element={<Counter />} />
+                    <Route path="/count" element={<Counter/>} />
                     <Route path="/users/:username" element={<ShowGithubUser />} />
-                    <Route path="/users" element={<GithubUserList />} />
                 </Routes>
             </BrowserRouter>
         </div>

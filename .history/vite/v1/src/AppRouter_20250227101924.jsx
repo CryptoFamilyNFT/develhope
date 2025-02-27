@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Routes, useParams } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Routes, useNavigate, useParams } from 'react-router-dom';
 import Chat from './components/Chat/Chat';
 import { Counter } from './components/Counter';
 import GitHubUser from './components/GitHubUser/GitHubUser';
@@ -15,7 +15,14 @@ function ShowGithubUser() {
 }
 
 export default function AppRouter() {
+    const navigate = useNavigate();
     const [searchedUser, setSearchedUser] = useState('');
+
+    const handleSearch = (event) => {
+        event.preventDefault();
+        navigate(`/users/${searchedUser}`);
+    };
+
     return (
         <div style={{
             width: '100%',
@@ -33,13 +40,14 @@ export default function AppRouter() {
                         <Link to="/chat">Chat</Link>
                         <Link to="/count">Counter</Link>
                         <Link to="/users">GitHub Users</Link>
-                        <Link to={`/users/:${searchedUser}`}>GitHub User</Link>
-                        <form onSubmit={(e) => {
-                            e.preventDefault();
-                            setSearchedUser(e.target.value
-                            );
-                        }} style={{ display: 'flex', alignItems: 'center' }}>
-                            <input type="text" placeholder="Search user" />
+                        <form style={{ display: 'flex', alignItems: 'center' }} onSubmit={handleSearch}>
+                            <input 
+                                type="text" 
+                                name="username" 
+                                placeholder="Search user" 
+                                value={searchedUser}
+                                onChange={(e) => setSearchedUser(e.target.value)}
+                            />
                             <button type="submit">Search User</button>
                         </form>
                     </div>

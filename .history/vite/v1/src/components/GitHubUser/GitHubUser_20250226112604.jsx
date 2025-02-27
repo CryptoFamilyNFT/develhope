@@ -1,8 +1,7 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 
-export default function GitHubUser({username, onClose}) {
+export default function GitHubUser({username}) {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -33,7 +32,6 @@ export default function GitHubUser({username, onClose}) {
 
     return (
         <div>
-            <button onClick={onClose}>Close</button>
             <h1>{user.name}</h1>
             <p>{user.login}</p>
             <img src={user.avatar_url} alt={`profile`} />
