@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "typescript": "^5.8.2"
+  },
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc --outDir dist",
+    "start-functions": "node dist/functions/functions.js",
+    "start-obj-type": "node dist/objects_type/obj-type.js",
+    "start-obj-props": "node dist/objects_type/props.js",
+    "start-primitives": "node dist/primitives/primitivesTypes.js",
+    "start-type": "node dist/type/types.js"
+  }
+}
