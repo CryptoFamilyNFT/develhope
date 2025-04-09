@@ -7,3 +7,6 @@ import getECMA from './getECMA.js';
     //console.log(getDataNow())
     console.log(getECMA())
 })()
+
+export {}
+//module.exports = {}

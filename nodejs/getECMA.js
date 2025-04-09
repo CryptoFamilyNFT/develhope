@@ -1,6 +1,6 @@
 
 function getECMA() {
-    console.log('ECMA Script');
+    return 'ECMA Script';
 }
 
 export default getECMA;
